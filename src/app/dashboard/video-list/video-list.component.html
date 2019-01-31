@@ -1,0 +1,5 @@
+<app-video *ngFor="let video of (videos | async)" class="list"
+  (click)="picked(video)"
+  [class.selected]="selected?.id === video.id"
+  [video]="video">
+</app-video>

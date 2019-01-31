@@ -1,0 +1,5 @@
+<div class="title"> {{ video?.title | titlecase }} </div>
+<div class="video" *ngIf="video?.title">
+  <iframe [src]="getVideo()" ></iframe>
+</div>
+<div class="author"> {{ video?.author | uppercase }} </div>

@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <app-video-list
+      class="three columns"
+      [videos]="videos"
+      (selectedVideo)="selectVideo($event)">
+    </app-video-list>
+    <app-video-player
+      class="six columns"
+      [video]="selectedVideo">
+    </app-video-player>
+    <app-stat-filters
+      class="three columns">
+    </app-stat-filters>
+  </div>
+</div>
