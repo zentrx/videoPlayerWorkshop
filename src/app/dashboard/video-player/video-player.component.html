@@ -1,5 +1,7 @@
-<div class="title"> {{ video?.title | titlecase }} </div>
-<div class="video" *ngIf="video?.title">
-  <iframe [src]="getVideo()" ></iframe>
-</div>
-<div class="author"> {{ video?.author | uppercase }} </div>
+<ng-container *ngIf="(video$ | async) as video">
+  <div class="title"> {{ video.title | titlecase }} </div>
+  <div class="video">
+    <iframe [src]="getVideo(video.id)"></iframe>
+  </div>
+  <div class="author"> {{ video.author | uppercase }} </div>
+</ng-container>

@@ -18,4 +18,7 @@ export class VideoDataService {
       .get<Video[]>(API_URL + '/videos')
       .pipe(map(videos => videos.slice(0, 5)));
   }
+  loadVideo(id): Observable<Video> {
+    return this.http.get<Video>(`${API_URL}/videos/${id}`);
+  }
 }

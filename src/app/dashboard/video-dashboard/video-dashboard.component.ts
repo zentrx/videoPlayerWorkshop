@@ -2,6 +2,8 @@ import { VideoDataService } from './../../video-data.service';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Video } from '../../types';
+import { ActivatedRoute } from '@angular/router';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-video-dashboard',
@@ -11,17 +13,17 @@ import { Video } from '../../types';
 export class VideoDashboardComponent implements OnInit {
 
   videos: Observable<Video[]>;
-  selectedVideo: Video;
+  selected: Observable<string>; // this is going to be an observable video id
 
-  constructor(private videoSvc: VideoDataService) {
-    this.videos = this.videoSvc.loadVideos();
+  constructor(private svc: VideoDataService, route: ActivatedRoute) {
+    this.videos = this.svc.loadVideos();
+    this.selected = route.queryParams
+      .pipe(
+        map(params => params.id)
+      );
    }
 
   ngOnInit() {
-  }
-
-  selectVideo(video: Video) {
-    this.selectedVideo = video;
   }
 
 }

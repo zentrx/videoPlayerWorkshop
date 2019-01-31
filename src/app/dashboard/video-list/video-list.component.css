@@ -2,3 +2,7 @@
 .selected {
   background-color: lightblue;
 }
+
+.list {
+  margin-bottom: 20px;
+}

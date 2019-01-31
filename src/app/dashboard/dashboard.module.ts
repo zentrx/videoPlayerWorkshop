@@ -8,8 +8,11 @@ import { VideoPlayerComponent } from './video-player/video-player.component';
 import { StatFiltersComponent } from './stat-filters/stat-filters.component';
 import { VideoComponent } from './video/video.component';
 
+
+// this shit wrong.
 const routes: Routes = [
-  { path: '', component: VideoDashboardComponent, pathMatch: 'full' }
+  { path: '', component: VideoDashboardComponent, pathMatch: 'full' },
+  { path: '', component: VideoListComponent, pathMatch: 'full' }
 ];
 
 @NgModule({

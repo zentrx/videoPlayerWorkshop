@@ -1,5 +1,5 @@
+import { Video } from './../../types';
 import { Component,  OnInit, Input } from '@angular/core';
-import { Url } from 'url';
 
 @Component({
   selector: 'app-video',
@@ -8,7 +8,7 @@ import { Url } from 'url';
 })
 export class VideoComponent implements OnInit {
 
-  @Input() video;
+  @Input() video: Video;
 
   constructor() { }
 

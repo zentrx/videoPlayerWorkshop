@@ -1,6 +1,6 @@
 import { Video } from './../../types';
-import { Observable } from 'rxjs';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-video-list',
@@ -9,17 +9,20 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class VideoListComponent implements OnInit {
 
-  @Input() videos: Observable<Video[]>;
-  @Input() selected: Video;
-  @Output() selectedVideo = new EventEmitter<Video>();
+  @Input() videos;
+  @Input() selected: string;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
-  picked(video: Video) {
-    this.selected = video;
-    this.selectedVideo.emit(video);
+  update(video: Video) {
+    this.router.navigate([], {
+      queryParams: {
+        id: video.id
+      },
+      queryParamsHandling: 'merge'
+    });
   }
 }
